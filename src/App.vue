@@ -6,8 +6,10 @@
       <HeaderComp />
     </header>
 
-    <main>
-
+    <main class="overflow-auto">
+      <div>
+        <MainComp />
+      </div>
     </main>
 
   </div>
@@ -15,23 +17,22 @@
 </template>
 
 <script>
-
-  import "bootstrap"
+  import "bootstrap";
 
   // Import components
   import HeaderComp from "./components/HeaderComp.vue";
+  import MainComp from "./components/MainComp.vue"
 
   export default {
     name: 'App',
     components: {
-      HeaderComp
+      HeaderComp,
+      MainComp,
     }
   }
-
 </script>
 
 <style lang="scss">
-
   @import "./variabili.scss";
   @import "./mixin.scss";
 
@@ -43,17 +44,16 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    header{
+    header {
       width: 100%;
       height: 10vh;
       background-color: $bg-header;
       @include flex(row, initial, center)
     }
 
-    main{
+    main {
       height: 90vh;
       background-color: $bg-main;
     }
   }
-
 </style>
