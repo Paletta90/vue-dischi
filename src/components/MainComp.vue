@@ -47,27 +47,13 @@
             }
         },
 
-        // methods: {
-        //     callAxios: function () {
-        //         axios.get("https://flynn.boolean.careers/exercises/api/array/music")
-        //             .then((res) => {
-        //                 this.arrayDisk = res.data.response
-        //                 console.log(this.arrayDisk.length)
-        //             })
-        //     }
-        // },
-
         created() {
             axios.get("https://flynn.boolean.careers/exercises/api/array/music")
                     .then((res) => {
                         this.arrayDisk = res.data.response
                         this.isLoaded = true
-                        for(let i = 0; i < this.arrayDisk.length; i++){
-                            console.log(this.arrayDisk[i].genre)
-                        }
             })
 
-            // setTimeout(this.callAxios, 3000)
         },
 
     }

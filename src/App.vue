@@ -4,13 +4,13 @@
 
     <header>
 
-      <HeaderComp />
+      <HeaderComp @functionSearch="methodSearch"/>
 
     </header>
 
     <main class="overflow-auto">
 
-        <MainComp />
+      <MainComp />
 
     </main>
 
@@ -27,9 +27,28 @@
 
   export default {
     name: 'App',
+
     components: {
       HeaderComp,
       MainComp,
+    },
+
+    data(){
+
+      return{
+
+        genere: null
+
+      }
+
+    },
+
+    methods: {
+
+      methodSearch(genre){
+        console.log(genre)
+      }
+
     },
 
   }
