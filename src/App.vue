@@ -4,13 +4,13 @@
 
     <header>
 
-      <HeaderComp @functionSearch="methodSearch"/>
+      <HeaderComp @functionSearchGenre="methodSearchGenre" @functionSearchArtist="methodSearchArtist"/>
 
     </header>
 
     <main class="overflow-auto">
 
-      <MainComp :genere="this.genere"/>
+      <MainComp :genere="this.genere" :artist="this.artist"/>
 
     </main>
 
@@ -37,7 +37,8 @@
 
       return{
 
-        genere: null
+        genere: null,
+        artist: null
 
       }
 
@@ -45,9 +46,14 @@
 
     methods: {
 
-      methodSearch(genre){
+      methodSearchGenre(genre){
         // Genere selezionato importato dal figlio HeaderComp
         this.genere = genre;
+      },
+      methodSearchArtist(artist){
+        // Genere selezionato importato dal figlio HeaderComp
+        this.artist = artist;
+        console.log(this.artist)
       }
 
     },

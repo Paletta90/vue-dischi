@@ -13,7 +13,7 @@
                 <!-- <OneDisk v-for="(elem, index) in arrayDisk" :key="index" :poster="elem.poster" :title="elem.title"
                     :author="elem.author" :year="elem.year" /> -->
                 <OneDisk v-for="(elem, index) in filter()" :key="index" :dati= "elem" />
-
+        
             </div>
         </div>
 
@@ -39,7 +39,8 @@
         },
 
         props:{
-            genere: String
+            genere: String,
+            artist: String
         },
 
         data() {
@@ -55,14 +56,15 @@
                     .then((res) => {
                         this.arrayDisk = res.data.response
                         this.isLoaded = true
+                        console.log(this.arrayDisk)
             })
 
         },
 
         methods: {
-            
+
             // Metodo che filtra in base al genere
-            filter(){
+            filterGenre(){
 
                 if(this.genere === null){
 
@@ -71,13 +73,27 @@
                 }else{
 
                     return this.arrayDisk.filter( (elem) => {
-                        
+
                         return elem.genre == this.genere
 
                     })
 
                 }
+            },
+            // Metodo che filtra artista e genere
+            filter(){
+                if(this.artist == null){
+
+                    return this.filterGenre();
+
+                }else{
+
+                    return this.filterGenre().filter( ( elem ) => {
+                        return elem.author == this.artist
+                    })
+                }
             }
+            
         }
 
     }
