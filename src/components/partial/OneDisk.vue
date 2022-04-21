@@ -5,10 +5,15 @@
         <!-- Card del disco -->
         <div class="bg-card p-2">
 
-            <img :src="poster" alt="" class="img-fluid mb-3">
+            <!-- <img :src="poster" alt="" class="img-fluid mb-3">
             <h5 class="text-white fw-bold mb-3">{{title}}</h5>
             <h6 class="text-secondary">{{author}}</h6>
-            <h6 class="text-secondary">{{year}}</h6>
+            <h6 class="text-secondary">{{year}}</h6> -->
+
+            <img :src="dati.poster" alt="" class="img-fluid mb-3">
+            <h5 class="text-white fw-bold mb-3">{{dati.title}}</h5>
+            <h6 class="text-secondary">{{dati.author}}</h6>
+            <h6 class="text-secondary">{{dati.year}}</h6>
 
         </div>
 
@@ -20,11 +25,15 @@
     export default {
         name: 'OneDisk',
 
-        props: {
-            poster: String,
-            title: String,
-            author: String,
-            year: String,
+        // props: {
+        //     poster: String,
+        //     title: String,
+        //     author: String,
+        //     year: String,
+        // }
+
+        props:{
+            dati: []
         }
     }
 </script>

@@ -51,7 +51,6 @@
       width: 100%;
       height: 10vh;
       background-color: $bg-header;
-      @include flex(row, initial, center)
     }
 
     main {
