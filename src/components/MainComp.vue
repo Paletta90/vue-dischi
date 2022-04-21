@@ -12,10 +12,9 @@
                 <!-- Stampo le singole card con un ciclio for -->
                 <!-- <OneDisk v-for="(elem, index) in arrayDisk" :key="index" :poster="elem.poster" :title="elem.title"
                     :author="elem.author" :year="elem.year" /> -->
-                <OneDisk v-for="(elem, index) in arrayDisk" :key="index" :dati= "elem" />
+                <OneDisk v-for="(elem, index) in filter()" :key="index" :dati= "elem" />
 
             </div>
-
         </div>
 
         <!-- Loader di caricamento -->
@@ -39,6 +38,10 @@
             OneDisk
         },
 
+        props:{
+            genere: String
+        },
+
         data() {
             return {
                 // Array dove metto i dati API di tutti i dischi
@@ -55,6 +58,27 @@
             })
 
         },
+
+        methods: {
+            
+            // Metodo che filtra in base al genere
+            filter(){
+
+                if(this.genere === null){
+
+                    return this.arrayDisk;
+
+                }else{
+
+                    return this.arrayDisk.filter( (elem) => {
+                        
+                        return elem.genre == this.genere
+
+                    })
+
+                }
+            }
+        }
 
     }
 </script>

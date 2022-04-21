@@ -10,7 +10,7 @@
 
     <main class="overflow-auto">
 
-      <MainComp />
+      <MainComp :genere="this.genere"/>
 
     </main>
 
@@ -46,7 +46,8 @@
     methods: {
 
       methodSearch(genre){
-        console.log(genre)
+        // Genere selezionato importato dal figlio HeaderComp
+        this.genere = genre;
       }
 
     },

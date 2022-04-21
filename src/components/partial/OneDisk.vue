@@ -39,6 +39,7 @@
 </script>
 
 <style lang="scss" scoped>
+
     @import "../../variabili.scss";
 
     .bg-card{
