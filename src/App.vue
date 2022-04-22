@@ -4,13 +4,13 @@
 
     <header>
 
-      <HeaderComp :generi="this.arrayGeneri" @functionSearchGenre="methodSearchGenre" @functionSearchArtist="methodSearchArtist"/>
+      <HeaderComp :generi="this.arrayGeneri" :artisti="this.arrayArtisti"  @functionSearchGenre="methodSearchGenre" @functionSearchArtist="methodSearchArtist"/>
 
     </header>
 
     <main class="overflow-auto">
 
-      <MainComp @generiPronti="ottieniGeneri" :genere="this.genere" :artist="this.artist"/>
+      <MainComp @generiPronti="ottieniGeneri" @artistiPronti="ottieniArtisti" :genere="this.genere" :artist="this.artist"/>
 
     </main>
 
@@ -39,7 +39,8 @@
 
         genere: null,
         artist: null,
-        arrayGeneri: []
+        arrayGeneri: [],
+        arrayArtisti:[]
 
       }
 
@@ -58,6 +59,9 @@
       },
       ottieniGeneri(array){
         this.arrayGeneri = array;
+      },
+      ottieniArtisti(array){
+        this.arrayArtisti = array;
       }
 
     },

@@ -21,7 +21,7 @@
                     >
 
                 <option :value="null" selected>Choose the artist</option>
-                <option v-for="(item, index) in artists" :key="index" :value="item">
+                <option v-for="(item, index) in artisti" :key="index" :value="item">
                     {{item}}
                 </option>
 
@@ -39,14 +39,11 @@
 
         props:{
             arrayDisk: [],
-            generi:[]
+            generi:[],
+            artisti:[]
         },
         data() {
             return {
-
-                artists: ['Bon Jovi', 'Queen', 'Sting', 'Steve Gadd Band', 'Iron Maiden', 'Eric Clapton', 'Deep Purple',
-                    'Metallica', 'Dave Weckl', 'Michael Jacjson'
-                ],
                 genre: null,
                 artist: null
             }

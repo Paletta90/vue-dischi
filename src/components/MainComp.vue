@@ -47,6 +47,7 @@
             return {
                 // Array dove metto i dati API di tutti i dischi
                 arrayDisk: [],
+                arrayArtist:[],
                 isLoaded: false,
                 arrayGeneri: []
             }
@@ -58,7 +59,7 @@
 
                         this.arrayDisk = res.data.response
                         this.isLoaded = true
-                        
+
                         console.log(this.arrayDisk)
 
                         this.arrayDisk.forEach( (elem) => {
@@ -69,9 +70,21 @@
 
                             }
                         } )
+
+                        this.arrayDisk.forEach( (elem) => {
+
+                            if(!this.arrayArtist.includes(elem.author)){
+
+                                this.arrayArtist.push(elem.author)
+
+                            }
+                        } )
+
                         console.log(this.arrayGeneri)
+                        console.log(this.arrayArtist)
 
                         this.$emit( 'generiPronti', this.arrayGeneri )
+                        this.$emit( 'artistiPronti', this.arrayArtist )
             })
 
         },
