@@ -4,13 +4,13 @@
 
     <header>
 
-      <HeaderComp @functionSearchGenre="methodSearchGenre" @functionSearchArtist="methodSearchArtist"/>
+      <HeaderComp :generi="this.arrayGeneri" @functionSearchGenre="methodSearchGenre" @functionSearchArtist="methodSearchArtist"/>
 
     </header>
 
     <main class="overflow-auto">
 
-      <MainComp :genere="this.genere" :artist="this.artist"/>
+      <MainComp @generiPronti="ottieniGeneri" :genere="this.genere" :artist="this.artist"/>
 
     </main>
 
@@ -38,12 +38,13 @@
       return{
 
         genere: null,
-        artist: null
+        artist: null,
+        arrayGeneri: []
 
       }
 
     },
-
+    
     methods: {
 
       methodSearchGenre(genre){
@@ -54,6 +55,9 @@
         // Genere selezionato importato dal figlio HeaderComp
         this.artist = artist;
         console.log(this.artist)
+      },
+      ottieniGeneri(array){
+        this.arrayGeneri = array;
       }
 
     },

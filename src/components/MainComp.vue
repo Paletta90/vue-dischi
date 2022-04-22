@@ -47,16 +47,31 @@
             return {
                 // Array dove metto i dati API di tutti i dischi
                 arrayDisk: [],
-                isLoaded: false
+                isLoaded: false,
+                arrayGeneri: []
             }
         },
 
         created() {
             axios.get("https://flynn.boolean.careers/exercises/api/array/music")
                     .then((res) => {
+
                         this.arrayDisk = res.data.response
                         this.isLoaded = true
+                        
                         console.log(this.arrayDisk)
+
+                        this.arrayDisk.forEach( (elem) => {
+
+                            if(!this.arrayGeneri.includes(elem.genre)){
+
+                                this.arrayGeneri.push(elem.genre)
+
+                            }
+                        } )
+                        console.log(this.arrayGeneri)
+
+                        this.$emit( 'generiPronti', this.arrayGeneri )
             })
 
         },

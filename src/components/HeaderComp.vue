@@ -9,7 +9,7 @@
                 @change=" $emit( 'functionSearchGenre', genre )">
 
                 <option :value="null" selected>Choose the genre</option>
-                <option v-for="(item, index) in genere" :key="index" :value="item">
+                <option v-for="(item, index) in generi" :key="index" :value="item">
                     {{item}}
                 </option>
 
@@ -37,10 +37,13 @@
     export default {
         name: 'HeaderComp',
 
+        props:{
+            arrayDisk: [],
+            generi:[]
+        },
         data() {
             return {
 
-                genere: ['Rock', 'Pop', 'Jazz', 'Metal'],
                 artists: ['Bon Jovi', 'Queen', 'Sting', 'Steve Gadd Band', 'Iron Maiden', 'Eric Clapton', 'Deep Purple',
                     'Metallica', 'Dave Weckl', 'Michael Jacjson'
                 ],
